@@ -1,14 +1,16 @@
-const sum = (a, b) => Math.round((a + b) * 1000) / 1000,
-  subs = (a, b) => Math.round((a - b) * 1000) / 1000,
-  mult = (a, b) => Math.round(a * b * 1000) / 1000,
-  div = (a, b) => Math.round((a / b) * 1000) / 1000,
-  sqrtRoot = (a) => Math.round(Math.sqrt(a) * 1000) / 1000;
+//The calculator function has two parameters with the type any, because, we do not know the input.
 
-const calculator = (n1, n2) => {
+const sum = (a: number, b: number): number => Math.round((a + b) * 1000) / 1000,
+  subs = (a: number, b: number): number => Math.round((a - b) * 1000) / 1000,
+  mult = (a: number, b: number): number => Math.round(a * b * 1000) / 1000,
+  div = (a: number, b: number): number => Math.round((a / b) * 1000) / 1000,
+  sqrtRoot = (a: number): number => Math.round(Math.sqrt(a) * 1000) / 1000;
+
+const calculator = (n1: any, n2: any): string | string[] => {
   if (n2 === undefined) {
     if (typeof n1 === "number") {
       let squareRoot = sqrtRoot(n1);
-      return [`SquareRoot of ${n1} is ${squareRoot}`];
+      return `SquareRoot of ${n1} is ${squareRoot}`;
     } else {
       return "Error: You must introduce a number.";
     }
@@ -28,5 +30,3 @@ const calculator = (n1, n2) => {
     return "Error: You must introduce a number.";
   }
 };
-
-console.log(calculator("hohoh", 315));
